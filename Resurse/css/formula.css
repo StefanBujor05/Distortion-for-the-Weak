@@ -1,0 +1,58 @@
+.formula-sunet {
+    background-color: var(--culoare-contur);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--text-colour);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    margin: 20px auto;
+    text-align: center;
+
+    font-size: 2rem; 
+}
+
+.formula-sunet .amplitudine {
+    color: #feca57; 
+    font-weight: bold;
+    font-size: 2.5rem; 
+}
+
+
+.formula-sunet .timp {
+    color: #1dd1a1;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.formula-sunet .functie-trig {
+    color: #48dbfb;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal; 
+    letter-spacing: 2px;
+}
+
+
+.formula-sunet .numar {
+    color: #ff9f43; 
+    font-weight: bold;
+}
+
+.formula-sunet .constanta, 
+.formula-sunet .faza {
+    color: #f368e0; 
+}
+
+
+.formula-sunet .var-dependenta,
+.formula-sunet .frecventa {
+    color: var(--text-colour); 
+    font-style: italic;
+}
+
+.formula-sunet .operator-principal,
+.formula-sunet .operator-secundar,
+.formula-sunet .inmultire,
+.formula-sunet .paranteza {
+    color: white;
+    padding: 0 5px;
+}

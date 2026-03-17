@@ -1,0 +1,84 @@
+
+#buton-sus {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.5; 
+    transition: opacity 0.5s ease; 
+    z-index: 9999; 
+}
+
+
+#buton-sus:hover {
+    opacity: 1;
+}
+
+
+#buton-sus .diamant {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--culoare-contur);
+    background-color: transparent; 
+    transform: rotate(45deg); 
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+
+#buton-sus .triunghi {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid var(--text-colour); 
+    border-top: none;
+    border-radius: 50%; 
+    transition: all 0.5s ease;
+    z-index: 2;
+    margin-top: -3px; 
+}
+
+
+#buton-sus:hover .diamant {
+    background-color: var(--culoare-contur);
+}
+
+
+#buton-sus:hover .triunghi {
+    border-bottom-color: var(--culoare-fundal);
+}
+
+#buton-sus .tooltip-sus {
+    position: absolute;
+    bottom: 110%; 
+    right: 50%;
+    transform: translateX(50%); 
+    background-color: var(--culoare-contur);
+    color: var(--text-colour);
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    white-space: nowrap; 
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    pointer-events: none; 
+}
+
+
+#buton-sus:hover .tooltip-sus {
+    opacity: 1;
+    visibility: visible;
+    bottom: 125%; 
+}

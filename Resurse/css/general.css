@@ -1,0 +1,287 @@
+body{
+    --culoare-fundal:rgb(50, 13, 19);
+    --margine-pagina:100px;
+    --culoare-contur:rgb(88, 24, 24);
+    --culoare-selected:rgb(233, 109, 37);
+    --text-colour:beige;
+    color:var(--text-colour);
+    background-color:var(--culoare-fundal);
+    text-decoration: rgb(255, 42, 0);   
+    margin: 0;
+    padding: 0;
+}
+ 
+
+main{
+
+    /* margin-left:var(--margine-pagina);
+    margin-right:var(--margine-pagina); */
+    max-width: 1400px; 
+    margin: 40px auto; /* 40px sus/jos, AUTO stânga/dreapta pentru CENTRARE */
+    padding: 0 20px;
+}
+
+a:link{
+    color: var(--culoare-selected);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+a:visited{
+    color:var(--culoare-selected);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+/*resetare spatiere*/
+figure{
+    margin:0;
+}
+
+.taburi-iframe > a:hover{
+    background-color:var(--culoare-contur);
+    color: white;
+}
+
+.taburi-iframe{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-iframe{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: flex-end; 
+    gap: 0;
+    width: 100%;
+}
+
+.taburi-iframe > a{
+    display: block;
+    padding: 15px 20px;
+    background-color: var(--culoare-fundal); 
+    color: white;
+    text-decoration: none;
+
+    border: 1px solid var(--culoare-contur);
+    border-left: none; 
+
+    border-top-right-radius: 70px;
+    border-bottom-right-radius: 15px;
+    
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+}
+
+
+/* #grid-pagina{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-areas: "welcome welcome welcome"
+                         "promotii promotii anunturi"
+                         "fig1 orar fig3"
+                         "fig2 fig4 fig5"
+                         "produse produse produse"
+                         "index-intrebari index-intrebari index-intrebari"
+                         "evenimente evenimente galerie-statica"
+                         ;
+}
+/*toti fii (descendenti directi) div-ului grid-pagina*/
+
+#grid-pagina {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-areas: 
+        "welcome      welcome      welcome         welcome"        
+        "orar         orar         personal-picks  personal-picks" 
+        "evenimente   statistici   personal-picks  personal-picks" 
+        "useri-online statistici   personal-picks  personal-picks" 
+        "anunturi     anunturi     index-intrebari index-intrebari"
+        "prod-dm      prod-dm      prod-tm         prod-tm"
+        "video-live   video-live   video-live      video-live"
+        "ifr-video-playlist ifr-video-playlist ifr-video-playlist ifr-video-playlist";      
+}   
+
+/*toti fii (descendenti directi) div-ului grid-pagina*/
+#grid-pagina > * {
+    border:1px solid var(--culoare-contur);
+    box-shadow: 0px 0px 5px var(--culoare-contur);
+    padding: 10px;
+}
+
+/* #produse h2 {
+    grid-column: 1 / span 2; 
+    text-align: center;
+    margin-top: 0;
+} */
+
+#welcome{
+    grid-area: welcome;
+}
+#ifr-video-playlist{
+    grid-area: ifr-video-playlist;
+}
+#promotii{
+    grid-area: promotii;
+}
+#prod-dm{
+    grid-area: prod-dm;
+}
+#prod-tm{
+    grid-area: prod-tm;
+}
+#statistici{
+    grid-area: statistici;
+}
+#useri-online{
+    grid-area: useri-online;
+}
+#anunturi{
+    grid-area: anunturi;
+}
+#orar{
+    grid-area: orar;
+}
+#video-live{
+    grid-area: video-live;
+}
+ 
+#fig1{
+    grid-area: fig1;
+}
+#fig2{
+    grid-area: fig2;
+}
+#fig3{
+    grid-area: fig3;
+}
+
+#index-intrebari{
+    grid-area: index-intrebari;
+}
+
+#personal-picks{
+    grid-area: personal-picks
+}
+#evenimente{
+    grid-area: evenimente;
+}
+/* table, th, td{
+    border: 1px solid var(--culoare-contur);
+
+} */
+
+#tab-orar td, #tab-orar{
+    border: 1px solid var(--culoare-contur);
+}
+#tab-orar{
+    border-collapse: collapse;
+}
+
+#tab-orar tbody tr:nth-child(even){
+    background-color:var(--culoare-contur);
+}
+.alt-color{
+    background-color: var(--culoare-fundal);
+}
+
+.fg-img img {
+    width: 100%; 
+    height: auto;    
+    display: block;  
+
+}
+
+/* ORAR ---------------------------------*/
+.tabel-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+
+#tab-orar {
+    width: 100%;
+    border-collapse: collapse; 
+    border: 6px double var(--culoare-contur); 
+}
+
+#tab-orar caption {
+    caption-side: bottom;
+    padding-top: 10px;
+    font-style: italic;
+    color: var(--text-colour);
+}
+
+#tab-orar th, 
+#tab-orar td {
+    border: 1px solid var(--culoare-contur);
+    padding: 10px;
+    text-align: center;
+
+    transition: all 0.75s ease; 
+}
+
+#tab-orar th:nth-child(even),
+#tab-orar td:nth-child(even) {
+    color: var(--culoare-selected);
+}
+
+
+#tab-orar th:nth-child(odd),
+#tab-orar td:nth-child(odd) {
+    color: var(--text-colour);
+}
+
+
+#tab-orar tbody tr:hover td {
+    background-color: var(--culoare-contur); 
+    color: white;
+    border-width: 5px; 
+}
+
+#tab-orar tbody tr:hover td:nth-child(even),
+#tab-orar tbody tr:hover td:nth-child(odd) {
+    color: white;
+}
+
+
+@media screen and (max-width:700px) {
+    body{
+        --margine-pagina:50px;
+    }
+
+    #grid-pagina{
+    display: grid;
+    /*grid-template-columns: 3fr 1fr 1fr;*/
+    grid-template-areas: "welcome welcome "
+                         "promotii promotii"
+                         "anunturi anunturi"
+                         "fig1 orar"
+                         "fig2 orar"
+                         "fig3 orar"
+                         "produse produse"
+                         "index-intrebari index-intrebari"
+}
+}
+
+@media screen and (max-width:1200px) {
+    #grid-pagina {
+        grid-template-areas: 
+            "welcome        welcome"
+            "promotii       promotii"
+            "anunturi       anunturi"
+            "fig1           orar"
+            "fig2           orar"
+            "fig3           orar"
+            "prod-dm        prod-tm" /* Am adaptat și aici să fie ambele pe un rând */
+            "index-intrebari index-intrebari"
+            "video-live      video-live"; /* <--- ACESTA ESTE RÂNDUL LIPSA */
+    }
+}
