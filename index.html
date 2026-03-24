@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+        <meta name="author" content="Bujor Stefan">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Albume si Single-uri ale trupelor tale preferate intr-un singur loc.">
+        <meta name="keywords" content="muzica, album, melodie, magazin, comanda, online, metal,
+                                       death, obituary, morbid angel, dying fetus, bolt thrower">
+    <title>Distortion for the Weak</title>
+    <link rel="icon" type="image/png" href="./resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./resurse/imagini/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="./Resurse/css/general.css" type="text/css" />
+    <link rel="stylesheet" href="./Resurse/css/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./Resurse/css/buton_inceput.css" type="text/css"/>
+    <link rel="stylesheet" href="./Resurse/css/formula.css" type="text/css"/>
+</head>
+<body>
+    <header>
+        <h1>Distortion for the Weak</h1>
+            <p>Greatest source of metal music</p>
+        <!--<img src="./resurse/imagini/death_human.png" alt="sigla" /> -->
+    
+        <nav>
+            <label id="hamburger" for="ch-menu">
+            <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">    
+            </label>
+            <input type="checkbox" id="ch-menu"/>
+            <ul class="meniu">
+                <li><div class="text-icon" id="acasa">Acasa</div>
+                <div class="imag-icon" id="acasa-mediu">
+                    <span class="fas fa-regular fa-house"></span>
+                </div>
+                    <ul>
+                        <li><a href="#welcome">Bine ati venit</a></li>
+                        <li><a href="#promotii">Promotii</a></li>
+                    </ul>
+                </li>
+                <li>Albume</li>
+                <li>Trupe</li>
+                <li>Register</li>
+            </ul>
+        </nav>
+    </header>
+    <main> <!--  comentariu -->
+        <div id="grid-pagina">
+
+            <section id="welcome">
+                <hgroup>
+                    <h2>Bine ati venit</h2>
+                    <p class="subtitlu">Prezentarea magazinului</p>
+                </hgroup>
+                <p class="anunt locatie">
+                    Pentru a vedea produsele fizica, ne puteti vizita in magazinele din Bucurest
+                    Timpuri Noi sau Constanta Ciresica!
+                </p>
+                <div id="dv-prezentare-1">
+                    <div id="dv-prezentare">
+                    <figure>
+                        <picture>
+                            <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                            <source srcset="./resurse/imagini/favicon/favicon-96x96.png" media="(max-width:700px)"/>
+                            <source srcset="./resurse/imagini/DF_MTBFD.jpg" media="(max-width:1200px)"/>
+                            <img src="./resurse/imagini/MA_FFTTF.jpg" alt="text" >
+                        </picture>
+                        <figcaption>The team's favourite albums</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div>
+            </div>
+            </section>
+            <section id="orar">
+                <h2>Orar</h2>
+                <table id="tab-orar">
+                    <caption>Programul magazinelor fizice</caption>
+                    <thead>
+
+                        <tr>
+                            <th>Cod</th>
+                            <th>Perioadă</th>
+                            <th>Zi</th>
+                            <th>Interval dimineata</th>
+                            <th>Pauza de masa</th>
+                            <th>Interval seară</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td rowspan="5" class="alt-color">Zile<br/>Lucrătoare</td>
+                            <td>Luni</td>
+                            <td>10-12</td>
+                            <td>12-14</td>
+                            <td>14-20</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            
+                            <td>Marti</td>
+                            <td>9-12</td>
+                            <td>12-13</td>
+                            <td>13-19</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            
+                            <td>Miercuri</td>
+                            <td>9-12</td>
+                            <td>12-13</td>
+                            <td>13-19</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            
+                            <td>Joi</td>
+                            <td>9-12</td>
+                            <td>12-13</td>
+                            <td>13-19</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            
+                            <td>Vineri</td>
+                            <td>9-12</td>
+                            <td>12-13</td>
+                            <td>13-19</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td rowspan="2" class="alt-color">Weekend</td>
+                            <td>Sambata</td>
+                            <td>10-12</td>
+                            <td>12-13</td>
+                            <td>13-16</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Duminica</td>
+                            <td>10-13</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">Anunturi legate de modficari vor fi facute in sectiune <i>Anunturi</i></td>
+                        </tr>
+                    
+                    </tfoot>
+                </table> 
+                <a href="./Resurse/imagini/orar.png" download="orar_dftw.png">Download orar</a>
+            </section>
+            <section id="evenimente">
+                <h2>Evenimente</h2>
+                <ul>
+                    <li><time datetime="2026-05-13">13 mai 2026</time> Concert <b>Metallica</b> la Arenele Romane.</li>
+                    <li><time datetime="2026-05-28">28 mai 2026</time> Concert <b>Iron Maiden</b>        la Arenele Romane.</li>
+                </ul>
+            </section>
+            <section id="personal-picks">
+                    <h2>Our personal picks: </h2>
+                    <ol>
+                        <li><p>Obituary - Cause of Death<br></p>
+                                <a href="./resurse/imagini/O_COD.jpg">
+                            <img src="./resurse/imagini/O_COD.jpg" width = "200" height = "200" alt="album">
+                                </a>
+                                <p><i>"We're dying for our souls to learn"</i></p>
+                            <p>
+                                Lansat in 1990, <i>Cause of Death</i> este 
+                                unul din cele mai importante<br>
+                                albume din istoria death metal-ului.<br>            
+                            </p>
+                        </li>
+
+                        <li><p>My Chemical Romance - I Brought You My Bullets, You Brought Me Your Love<br></p>
+                            <img src="./resurse/imagini/MCR_IBYMBYBMYL.png" width="200" height="200" alt="album">
+                                <p><i>
+                                    "Running away and hiding with you<br>
+                                    I never thought they'd get me here<br>
+                                    Not knowing you changed from just one bite<br>
+                                    I fought them all off just to hold you close and tight"<br>
+                                </i></p>
+                            <p>Albumul de debut al faimoasai trupe de Alt Rock/Emo <br>
+                                        <i>My Chemical Romance</i>. Putine cuvinte pot descrie cu adevarat<br>
+                                        frumusetea acestui ablum.
+                            </p>
+                        </li>
+
+                        <li><p>TOOL - Lateralus<br></p>
+                            <img src="./Resurse/imagini/T_L.jpg" width="200" height="200" alt="album">
+                                    <p><i>
+                                        "This body holding me reminds me of my own mortality<br>
+                                        Embrace this moment, remember, we are eternal<br>
+                                        All this pain is an illusion "<br>
+                                    </i></p>
+                                <p>
+                                    Incadrandu-se ferm in categoria Progressive Metal, <i>Lateralus</i><br>
+                                    este un album pe care multe trupe ar dori sa il fi scris.<br>
+                                    TOOL dovedesc abilitatea de a imbina toate instumente in mod unic,<br>
+                                    chiar scriind <i>4 solo-uri concomintente</i>, unul pentru fiecare<br>
+                                    dintre acestea (da, pentru TOOL, <i>vocea</i> este un instrument).<br>
+                                </p>
+                        </li>
+                    </ol>
+            </section>
+            <section id="statistici">
+                <h2>Placehoder statistici</h2>
+                <p>placehoder statistici</p>
+            </section>
+            <section id="useri-online">
+                <h2>Placehoder useri online</h2>
+                <p>Placehoder useri online</p>
+            </section>
+            <section id="anunturi">
+                <h2 class="fg-img">Anunțuri</h2>
+                <p><time datetime="2025-03-14">[14 martie 2025]</time> <b>Iron Maiden</b> anunta concert in Romania!</p>
+                <blockquote cite="https://www.iabilet.ro/bilete-iron-maiden-run-for-your-lives-world-tour-115211/">Support act: ANTHRAX.</blockquote>
+                <p><time datetime="2025-01-27">[27 ianuarie 2025]</time> <strong>Metallica anunta concert in Romania!</strong></p>
+                <blockquote cite="https://www.metallica.com/tour/2026-05-13-bucharest-romania.html">Other acts: Gojira, Knocked Loose</blockquote>
+               
+                <p><time datetime="2025-08-14">[14 august 2025]</time> <span><i>Megadeth</i> au anuntat ultimul album, cat si ultimul lor tour :/ <br>
+                    <a href="https://www.megadeth.com/blogs/news/final-album-global-farewell-tour" target="_blank">Mai multe detalii.</a>
+                </span></p>
+                <p><time datetime="2023-09-08">[9 septembrie 2023]</time> <span>Dying Fetus a lansat <q><i>Make Them Beg for Death</i></q>, tracifcul pe site ar putea fi afectat</span></p>
+                <a href="https://www.relapse.com/pages/dying-fetus-make-them-beg-for-death">https://www.relapse.com/pages/dying-fetus-make-them-beg-for-death</a>
+            </section>
+            
+            <section id="index-intrebari">
+                <h2>Întrebări frecvente</h2>
+                <details><summary>Care este numarul minim de albume pe care il pot comanda?</summary>
+                    <p>Nu exista un numar minim, insa, pentru comenzi > 200 lei, transportul este gratuit.</p>
+                </details>
+                <details><summary>Care este regulamentul pentru retur?</summary>
+                    <p>Orice produs poate fi returnat in primele 14 zile dupa achizite.</p>
+                </details>
+                <details><summary>Cine este geniul din spatele design-ului site-ului?</summary>
+                    <p>Stefan</p>
+                </details>
+                <details><summary>Unde va pot contacta pentru intrebari(ironic)</summary>
+                    <p>La adresa de email numele_meu@gmail.com sau numarul de telefon 0766612312</p>
+                </details>
+                
+            </section>
+            
+                <section id="prod-dm">
+                    <h3>Death Metal</h3>
+                    <ul>
+                        <li>
+                            <p>Morbid Angel - Formulas Fatal to the Flesh<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/MA_FFTTF.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Obituary - Cause of Death<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/O_COD.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Death - Symbolic<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/D_S.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Death - Leprosy<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/D_L.jpg" width="96" height="96" alt="death">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Bolt Thrower - ...For Victory<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/BT_FV.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Obituary - Slowly we rot<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/O_SWR.jpeg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                    </ul>
+                </section>
+                <section id="prod-tm">
+                    <h3>Thrash Metal</h3>
+                    <ul>
+                        <li>
+                            <p>Megadeth - Rust in Peace<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/MD_RIP.png" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Megadeth - Killing is my businees... and business is good!<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/MD_KIMB.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Metallica - ...And just for all<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/M_AJFA.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+                        <li>
+                            <p>Overkill - The years of decay<br></p>
+                            <picture>
+                                <img src="./resurse/imagini/OK_TYOD.jpg" width="96" height="96" alt="album">
+                            </picture>
+                        </li>
+            
+                    </ul>
+                </section>
+            
+            
+<!--
+            <figure id="fig1" class="fg-img">
+                <img src="resurse/imagini/MCR_TBP.jpg"  title="The Black Parade" alt="album">
+                <figcaption>My Chemical Romance</figcaption>
+            </figure>
+
+            <figure id="fig2" class="fg-img">
+                <img src="resurse/imagini/D_TSOP.jpg" alt="album">
+                <figcaption>Death</figcaption>
+            </figure>
+
+            <figure  id="fig3" class="fg-img">
+                <img src="resurse/imagini/D_ITP.jpg"  alt="album">
+                <figcaption>Death</figcaption>
+            </figure>
+            <figure id="fig4" class="fg-img">
+                <img src="resurse/imagini/D_SBG.jpg"  alt="album">
+                <figcaption>Death - Scream Bloody Gore</figcaption>
+            </figure>
+            <figure id="fig5" class="fg-img">
+                <img src="resurse/imagini/OK_TYOD.jpg"  alt="briose">
+                <figcaption>Overkill - The Years of Deacy</figcaption>
+            </figure>
+-->
+        
+       
+        <section id="video-live">
+            <h2>Variante Live si concerte inregistrare ale trupelor noastre preferate</h2>
+            <p>Daca sunteti interesati de felul in care suna (sau sunau :/) trupere voastre preferate Live, aici sunt niste exemple<br>
+            cu trupele noastre favorite.
+            </p>
+            <div class="container-iframe">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/x9snwv5wFBg?si=wAc7KtKxFWo8-LpS" name="ifr-video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="taburi-iframe">
+                <a href="https://www.youtube.com/embed/5jvXjjjzccc?si=BKoaKNfxEeMEN20h" target="ifr-video">Morbid Angel - Nothing is Not Live</a>
+                <a href="https://www.youtube.com/embed/LYY1lZtQZWU?si=67SF96isUol01oqK" target="ifr-video" >Death - Spiritual Healing Live</a>
+                <a href="https://www.youtube.com/embed/x9snwv5wFBg?si=wAc7KtKxFWo8-LpS" target="ifr-video" >Bolt Thrower - The Killchain Live</a><br/>
+                </div>
+                
+
+            </div>
+        </section>
+        <section id="sectiune-formula">
+    <h2>Fizica Sunetului: Unda sonora</h2>
+    <p>O reprezentare matematică a sunetului pe care îl iubești:</p>
+    
+    <math xmlns="http://www.w3.org/1998/Math/MathML" class="formula-sunet" display="block">
+        <mrow>
+            <mi class="var-dependenta">y</mi>
+            <mo class="paranteza">(</mo>
+            <mi class="timp">t</mi>
+            <mo class="paranteza">)</mo>
+        </mrow>
+        
+        <mo class="operator-principal">=</mo>
+        
+        <mi class="amplitudine">A</mi>
+        <mo class="inmultire">&sdot;</mo>
+        
+        <mi class="functie-trig">sin</mi>
+        
+        <mrow>
+            <mo class="paranteza">(</mo>
+            <mn class="numar">2</mn>
+            <mi class="constanta">&pi;</mi>
+            <mi class="frecventa">f</mi>
+            <mi class="timp">t</mi>
+            <mo class="operator-secundar">+</mo>
+            <mi class="faza">&phi;</mi>
+            <mo class="paranteza">)</mo>
+        </mrow>
+    </math>
+</section>
+        <section id="ifr-video-playlist">
+            <h2>Decapitated - Nihility(2002)</h2>
+            
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/videoseries?si=pno_PrNCYeRIJjck&amp;list=PLeddF0N3V2BTAqTl9d0veyaWftGYzmrW-" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </section>
+</div>
+
+    </main>
+    <footer id="footer">
+        <address>
+            <p><small>Copyright &copy; 2026 Bujor Stefan</small></p>
+            <strong>Contact: </strong><br>
+            <a href="emailfictiv@gmail.com">emailfictiv@gmail.com</a><br>
+            <a href="tel+40712412312">0712412312<br></a>
+            <strong>Instagram:</strong> 
+            <a href="https://www.instagram.com/" target="_blank">Trimite-ne un mesaj</a><br> 
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Facultatea+de+Matematica+si+Informatica+Bucuresti" target="_blank">
+            Strada Academiei 14, Bucuresti
+            </a><br><br>
+        
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.6331073575957!2d26.097011775882102!3d44.435539301482265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFaculty%20of%20Mathematics%20and%20Computer%20Science!5e1!3m2!1sen!2sro!4v1772964452636!5m2!1sen!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        </address>
+        <p>Orar formt PDF:</p>
+        <object data="./Resurse/imagini/docs/orar.pdf"></object>
+        <a href="#welcome" id="buton-sus">
+            <div class="diamant"></div>
+            <div class="triunghi"></div>
+            <span class="tooltip-sus">Mergi la începutul paginii</span>
+        </a>
+    </footer>
+</body>
+</html>
