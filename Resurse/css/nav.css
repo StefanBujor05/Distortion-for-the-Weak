@@ -5,6 +5,7 @@ nav{
 }
 ul.meniu{
     display: flex;
+    flex-wrap: wrap;
 }
 
 @keyframes animatie_submeniu {
@@ -40,7 +41,11 @@ ul.meniu, ul.meniu ul{
     margin: 0;
 }
 
-#hamburger, #ch-menu{
+#ch-menu{
+    display: none;
+}
+
+#hamburger{
     display: none;
 }
 
@@ -69,6 +74,7 @@ ul.meniu li:hover ul{
     z-index: 10; /*ORICE val > 0*/
 }
 
+/*toate ul care au clasa meniu*/
 ul.meniu li:hover{
     background-color: var(--culoare-contur);
     color: beige;

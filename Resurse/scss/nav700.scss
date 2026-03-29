@@ -1,0 +1,85 @@
+$nul: 0;
+#hamburger {
+    display: block; 
+    font-size: 2rem;
+    color: beige;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+ul.meniu {
+    display: none; 
+    flex-direction: column; 
+    width: 100%; 
+    position: absolute; 
+    top: 50px;
+    left: 0;
+    z-index: 100;
+    background-color: black; 
+
+    li {
+        width: 100%;
+        border-radius: $nul; 
+        border-left: none;
+        border-right: none;
+        background-color: transparent;
+        text-align: center;
+
+        #acasa { display: none; }
+        #acasa-mediu i { display: inline-block; font-size: 1.2rem; }
+    }
+
+    ul {
+        position: relative; 
+        top: 0;
+        width: 100%;
+        background-color: black;
+        animation: none; 
+        transform: scaleY(1);
+
+        li {
+            a {
+                padding-left: 0; 
+                
+
+                &::before {
+                    content: ""; 
+                    display: none !important; 
+                }
+            }
+
+
+            &:hover {
+                box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
+
+                a {
+                    padding-left: 0; 
+
+                    &::before {
+                        opacity: 0;
+                        transform: none;
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes dropMenu {
+   0% { 
+        transform: scale(0);
+        opacity: $nul; 
+    }
+    100% { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+#ch-menu:checked ~ ul.meniu {
+    display: flex;
+    animation: dropMenu 0.3s ease-out forwards;
+    transform-origin: top left; 
+}

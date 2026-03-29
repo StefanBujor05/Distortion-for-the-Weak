@@ -1,0 +1,19 @@
+ul.meniu {
+    li {
+        font-size: 0.8rem; 
+
+        > .text-icon {
+            display: none; 
+        }
+
+        > i, > .imag-icon {
+            display: inline-block;
+            font-size: 1.2rem; 
+            line-height: var(--inaltime-buton);
+        }
+    }
+
+    ul li .text-icon {
+        display: block;
+    }
+}

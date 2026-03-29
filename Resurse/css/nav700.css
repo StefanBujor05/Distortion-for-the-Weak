@@ -1,0 +1,28 @@
+#hamburger{
+    display: block;
+}
+
+#hamburger > i{
+    height: 1em;
+    width: auto; /*calc width in func de height ca sa pastreze raportul*/
+}
+
+ul.meniu{
+    display: none;
+}
+
+/*meniul imediat de dupa ch-menu, sau fratele lui ATUNCI cand este bifat*/
+#ch-menu:checked + ul.meniu{
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+ul.meniu li{
+    width: 100%;
+}
+ 
+ul.meniu ul{
+    width: 100%;
+}

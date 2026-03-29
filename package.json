@@ -1,0 +1,30 @@
+{
+  "name": "proiect_rep",
+  "version": "1.0.0",
+  "description": "site de albume",
+  "keywords": [
+    "music",
+    "metal",
+    "album",
+    "band"
+  ],
+  "homepage": "https://github.com/StefanBujor05/Distortion-for-the-Weak#readme",
+  "bugs": {
+    "url": "https://github.com/StefanBujor05/Distortion-for-the-Weak/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefanBujor05/Distortion-for-the-Weak.git"
+  },
+  "license": "ISC",
+  "author": "stefan bujor",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}

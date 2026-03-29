@@ -20,6 +20,22 @@ main{
     padding: 0 20px;
 }
 
+/* toate h1 care se afla in header*/
+header h1 {
+    font-family: 'Manufacturing Consent', sans-serif;
+    font-size: 5.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+header p{
+    padding-left: 20px;
+    font-size: 2rem;
+    margin-top: 0;
+    /* text-align: center; */
+}
+
 a:link{
     color:rgb(233, 109, 37);
     background-color: transparent;
@@ -92,11 +108,10 @@ figure{
     box-shadow: 0px 0px 5px var(--culoare-contur);
     padding: 10px;
 } 
-
+/* 
 #grid-pagina {
     display: grid;
     gap: 10px;
-    /* 2 fracții pentru conținut, 1 fracție pentru sidebar */
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     grid-template-areas: 
         "welcome      welcome      welcome         welcome"        
@@ -105,7 +120,7 @@ figure{
         "useri-online statistici   personal-picks  personal-picks" 
         "anunturi     anunturi     index-intrebari index-intrebari"
         "produse      produse      produse         produse     ";      
-}   
+}    */
 
 /*toti fii (descendenti directi) div-ului grid-pagina*/
 #grid-pagina > * {
@@ -118,6 +133,10 @@ figure{
     grid-column: 1 / span 2; 
     text-align: center;
     margin-top: 0;
+}
+
+#sectiune-formula{
+    grid-area: sectiune-formula;
 }
 
 #welcome{
@@ -340,7 +359,8 @@ figure{
         "anunturi     anunturi     index-intrebari index-intrebari"
         "prod-dm      prod-dm      prod-tm         prod-tm"
         "video-live   video-live   video-live      video-live"
-        "ifr-video-playlist ifr-video-playlist ifr-video-playlist ifr-video-playlist";      
+        "ifr-video-playlist ifr-video-playlist sectiune-formula sectiune-formula"
+        /* "sectiune-formula sectiune-formula sectiune-formula sectiune-formula";       */
 }   
 
 /*toti fii (descendenti directi) div-ului grid-pagina*/
@@ -356,11 +376,16 @@ figure{
     margin-top: 0;
 } */
 
+#ifr-video-playlist iframe{
+    display: block;
+    margin: 0 auto; /*imparte marginile din st si dr in mod egal, iar cele de sus is jos sunt 0*/
+}
+
 #welcome{
     grid-area: welcome;
 }
 #ifr-video-playlist{
-    grid-area: ifr-video-playlist;
+    grid-area: ifr-video-playlist;  
 }
 #promotii{
     grid-area: promotii;
@@ -515,8 +540,8 @@ figure{
             "fig1           orar"
             "fig2           orar"
             "fig3           orar"
-            "prod-dm        prod-tm" /* Am adaptat și aici să fie ambele pe un rând */
+            "prod-dm        prod-tm" 
             "index-intrebari index-intrebari"
-            "video-live      video-live"; /* <--- ACESTA ESTE RÂNDUL LIPSA */
+            "video-live      video-live"; 
     }
 }

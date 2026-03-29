@@ -1,0 +1,86 @@
+@media print {
+
+    @page :left {
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    @page :right {
+        margin-left: 0.5cm;
+        margin-right: 2.5cm;
+    }
+
+    
+    #footer .banner {
+        position: absolute;
+        top: 0;
+        left: 10%; 
+        width: 80%;
+        border: 2px dotted black;
+        text-align: center;
+        padding: 10px;
+        margin: 0;
+    }
+
+
+    img, picture, figure, iframe, object, math, #buton-sus, .container-iframe {
+        display: none !important;
+    }
+
+    #grid-pagina {
+        display: block !important;
+    }
+    
+
+    #grid-pagina > section {
+        break-inside: avoid;
+    }
+
+
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+
+
+    nav, header p {
+        display: none !important;
+    }
+
+
+    h1 {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2.5rem; 
+        text-decoration: underline;
+        margin: 0;
+        break-after: page; 
+    }
+
+
+    #footer {
+        break-before: page;
+    }
+
+    body::after {
+        content: "Bujor Stefan"; 
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 100px;
+        height: 2cm;
+        border: 4px double black;
+        opacity: 0.65;
+        z-index: 9999;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
