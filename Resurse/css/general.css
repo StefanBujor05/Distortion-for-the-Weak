@@ -257,10 +257,11 @@ body{
     --margine-pagina:100px;
     --culoare-contur:rgb(88, 24, 24);
     --culoare-selected:rgb(233, 109, 37);
+    --culoare-decorare: rgb(255, 42, 0);
     --text-colour:beige;
     color:var(--text-colour);
     background-color:var(--culoare-fundal);
-    text-decoration: rgb(255, 42, 0);   
+    text-decoration: var(--culoare-decorare);
     margin: 0;
     padding: 0;
 }
@@ -324,11 +325,11 @@ figure{
     border-left: none; 
 
     border-top-right-radius: 70px;
-    border-bottom-right-radius: 15px;
+    border-bottom-right-radius: 5px;
     
     margin-bottom: 5px;
     transition: all 0.3s ease;
-    white-space: nowrap; 
+    /* white-space: nowrap;  */
 }
 
 

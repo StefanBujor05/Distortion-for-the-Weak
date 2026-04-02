@@ -5,12 +5,10 @@ $border_px: 5px;
     display: none;
 }
 
-// Ascundem checkbox-ul și hamburger-ul pe desktop
 #ch-menu, #hamburger {
     @extend %nu_afiseaza;
 }
 
-// Cerința 2: Scalarea pe verticală a submeniului
 @keyframes animatie_submeniu {
     0% {
         transform: scaleY(0);
@@ -32,16 +30,14 @@ nav {
     display: inline-block;
 }
 
-// Tot meniul așezat curat într-un singur bloc de nesting SASS
 ul.meniu {
     display: flex;
     list-style-type: none;
     padding: $nul;
     margin: $nul;
 
-    // Reguli generale pentru orice li (Meniu principal)
     li {
-        position: relative; // Foarte important pentru a ține submeniul sub el
+        position: relative; 
         font-weight: bold;
         cursor: pointer;
         width: var(--latime-buton);
@@ -50,8 +46,8 @@ ul.meniu {
         border: 1px solid var(--culoare-contur);
         text-align: center;
         line-height: var(--inaltime-buton);
-        border-radius: $border_px; // shorthand pentru toate 4 colțurile
-        transition: all 0.3s ease; // Tranziție lină
+        border-radius: $border_px;
+        transition: all 0.3s ease;
 
         a {
             text-decoration: none;
@@ -59,65 +55,62 @@ ul.meniu {
             display: block;
         }
 
-        // Cerința 1: Umbră internă și fundal pe hover
+
         &:hover {
             background-color: var(--culoare-contur);
             color: beige;
-            // boxShadow: inset X Y Blur Spread Color
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8); 
 
-            // Când facem hover pe li, afișăm submeniul direct copil
             > ul {
                 display: block;
             }
         }
     }
 
-    // Configurarea submeniului ascuns
+
     ul {
         display: none;
-        position: absolute; // Ca să nu împingă restul paginii în jos
-        top: 100%; // Îl așează exact sub butonul părinte
+        position: absolute;
+        top: 100%; 
         left: 0;
         list-style-type: none;
         padding: $nul;
         margin: $nul;
         z-index: 10;
         
-        // Aplicăm animația de scaleY
+
         animation: animatie_submeniu 0.2s ease-out forwards;
         transform-origin: center top; 
 
-        // Stiluri specifice pentru elementele din SUBMENIU (Cerința 3)
+      
         li {
-            border-radius: 0; // De obicei submeniurile sunt dreptunghiulare
-            box-shadow: none; // Resetăm umbra părinților
+            border-radius: 0; 
+            box-shadow: none; 
 
             a {
                 position: relative;
-                transition: padding 0.3s ease; // Ca textul să facă loc săgeții finuț
+                transition: padding 0.3s ease; 
 
-                // Creăm săgețica
                 &::before {
                     content: '→';
                     position: absolute;
-                    left: 5px; // Poziția ei finală
-                    opacity: 0; // Ascunsă inițial
-                    transform: translateX(-15px); // Împinsă la stânga inițial
-                    transition: all 0.3s ease; // Tranziția ei de glisare
+                    left: 5px; 
+                    opacity: 0; 
+                    transform: translateX(-15px);
+                    transition: all 0.3s ease; 
                 }
             }
 
-            // Ce se întâmplă când dăm hover pe un element din submeniu
+            
             &:hover {
-                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); // Păstrăm efectul de umbră și aici
+                box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); 
 
                 a {
-                    padding-left: 20px; // Împingem textul la dreapta
+                    padding-left: 20px; 
 
                     &::before {
-                        opacity: 1; // Apare
-                        transform: translateX(0); // Glisează spre dreapta
+                        opacity: 1; 
+                        transform: translateX(0);
                     }
                 }
             }
