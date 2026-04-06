@@ -64,16 +64,90 @@ app.get("/cale2/:a/:b", function(req, res){
     res.send(parseInt(req.params.a) + parseInt(req.params.b));
 });
 
-function initErori(){
-    let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
-    let erori=obGlobal.obErori=JSON.parse(continut)
-    let err_default=erori.eroare_default
-    err_default.imagine=path.join(erori.cale_baza, err_default.imagine)
-    for (let eroare of erori.info_erori){
-        eroare.imagine=path.join(erori.cale_baza, eroare.imagine)
+// function initErori(){
+//     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
+//     let erori=obGlobal.obErori=JSON.parse(continut)
+//     let err_default=erori.eroare_default
+//     err_default.imagine=path.join(erori.cale_baza, err_default.imagine)
+//     for (let eroare of erori.info_erori){
+//         eroare.imagine=path.join(erori.cale_baza, eroare.imagine)
+//     }
+
+// }
+
+
+function initErori() {
+    let caleErori = path.join(__dirname, "resurse/json/erori.json");
+
+    if (!fs.existsSync(caleErori)) {
+        console.error("fisierul json nu exista!");
+        process.exit(1); 
     }
 
+    let continut = fs.readFileSync(caleErori).toString("utf-8");
+
+    let obiecteText = continut.split("{");
+    for (let bloc of obiecteText) {
+        let chei = [...bloc.matchAll(/"([^"]+)"\s*:/g)].map(m => m[1]);
+        let unice = new Set(chei);
+        if (chei.length !== unice.size) {
+            console.error(`Proprietate duplicata: { ${bloc.substring(0, 50).replace(/\n/g, '')}...`);
+        }
+    }
+
+    let erori = obGlobal.obErori = JSON.parse(continut);
+    if (!erori.info_erori || !erori.cale_baza || !erori.eroare_default) {
+        console.error("Proprietati lipsa!");
+    }
+
+    let err_default = erori.eroare_default;
+
+    if (err_default && (!err_default.titlu || !err_default.text || !err_default.imagine)) {
+        console.error("eroare in erori default");
+    }
+
+    let folderBazaAbsolut = path.join(__dirname, erori.cale_baza || "inexistent");
+    if (!fs.existsSync(folderBazaAbsolut)) {
+        console.error(`'cale_baza' nu exista la adresa: ${folderBazaAbsolut}`);
+    } else {
+
+        if (err_default && err_default.imagine && !fs.existsSync(path.join(folderBazaAbsolut, err_default.imagine))) {
+            console.error(`nu exista imaginea default -> ${err_default.imagine}`);
+        }
+
+        let idSet = new Set();
+        let idDuplicate = [];
+
+        if (erori.info_erori) {
+            for (let eroare of erori.info_erori) {
+                
+                if (eroare.imagine && !fs.existsSync(path.join(folderBazaAbsolut, eroare.imagine))) {
+                    console.error(`Nu exista imagine pentru eroarea: ${eroare.identificator} -> ${eroare.imagine}`);
+                }
+
+                if (idSet.has(eroare.identificator)) {
+                    idDuplicate.push(eroare);
+                } else {
+                    idSet.add(eroare.identificator);
+                }
+                eroare.imagine = path.join(erori.cale_baza, eroare.imagine);
+            }
+        }
+
+        if (idDuplicate.length > 0) {
+            console.error("exista erori cu ID-uri duplicate");
+            for (let dup of idDuplicate) {
+                let clona = { ...dup };
+                delete clona.identificator; 
+                console.error("erore duplicata: ", clona);
+            }
+        }
+    }
+
+    if (err_default) err_default.imagine = path.join(erori.cale_baza, err_default.imagine);
 }
+
+
 initErori()
 
 
@@ -117,7 +191,7 @@ app.get("/*pagina", function(req, res){
         res.render("pagini" + req.url, function(err, rezRandare){
             if(err){
                 if(err.message.includes("Failed to lookup view")){
-                    afisareEroare(err, 404)
+                    afisareEroare(res, 404)
                 }
                 else{
                     afisareEroare(res)

@@ -44,7 +44,6 @@ $nul: 0;
     @for $i from 1 through 3 {
         .ham:nth-child(#{$i}) {
             top: ($i - 1) * 10px; 
-
             animation-delay: $i * 0.3s; 
         }
     }

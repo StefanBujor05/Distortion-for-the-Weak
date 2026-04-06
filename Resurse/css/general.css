@@ -3,6 +3,7 @@ body{
     --margine-pagina:100px;
     --culoare-contur:rgb(88, 24, 24);
     --text-colour:beige;
+    --culoare-pata: beige;
     color:var(--text-colour);
     background-color:var(--culoare-fundal);
     text-decoration: rgb(255, 42, 0);   
@@ -42,11 +43,43 @@ a:link{
     text-decoration: none;
 }
 
-
 a:visited{
     color:rgb(143, 67, 23);
     background-color: transparent;
     text-decoration: none;
+}
+
+a[href^="http"]::before {
+    content: "⮳ ";
+    font-size: 1.5em; 
+    transition: color 0.3s ease; 
+}
+
+a[href^="http"]:hover::before {
+    color: var(--culoare-decorare);
+}
+/* animatie hover link */
+main a {
+    
+    background-image: radial-gradient(circle, var(--culoare-pata) 0%, var(--culoare-pata) 40%, transparent 80%, transparent 100%);
+    
+    background-position: center; 
+    background-size: 0%;     
+    background-repeat: no-repeat;
+    
+    transition: background-size 0.3s ease-out; 
+    
+    border: 1px solid transparent; 
+    padding: 2px 5px; 
+    border-radius: 3px;
+}
+
+main a:hover {
+    background-size: 100%;
+}
+
+main a:active {
+    border: 1px solid var(--culoare-contur);
 }
 
 /*resetare spatiere*/
@@ -144,6 +177,9 @@ figure{
 }
 #promotii{
     grid-area: promotii;
+}
+#video-section{
+    grid-area: video-section;
 }
 #prod-dm{
     grid-area: auto;
@@ -250,6 +286,7 @@ figure{
                          "fig3 orar"
                          "produse produse"
                          "index-intrebari index-intrebari"
+                         "video-section video-section"
 }
 }
 body{
@@ -361,6 +398,7 @@ figure{
         "prod-dm      prod-dm      prod-tm         prod-tm"
         "video-live   video-live   video-live      video-live"
         "ifr-video-playlist ifr-video-playlist sectiune-formula sectiune-formula"
+        "video-section video-section video-section video-section "
         /* "sectiune-formula sectiune-formula sectiune-formula sectiune-formula";       */
 }   
 
@@ -459,6 +497,24 @@ figure{
 
 }
 
+.video-metal {
+    width: 80%; 
+    min-width: 320px; 
+    max-width: 900px;
+    display: block;
+    margin: 10px auto; 
+}
+
+::cue {
+    background-image: linear-gradient(to right, #4a0000, #1a1a1a);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: none; 
+}
+
 /* ORAR ---------------------------------*/
 .tabel-container {
     width: 100%;
@@ -529,6 +585,7 @@ figure{
                          "fig3 orar"
                          "produse produse"
                          "index-intrebari index-intrebari"
+                         "video-section video-section"
 }
 }
 
@@ -543,6 +600,7 @@ figure{
             "fig3           orar"
             "prod-dm        prod-tm" 
             "index-intrebari index-intrebari"
-            "video-live      video-live"; 
+            "video-live      video-live"
+            "video-section video-section"; 
     }
 }
