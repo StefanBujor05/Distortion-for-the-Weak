@@ -1,87 +1,95 @@
-nav{
-    --latime-buton: 120px;
-    --inaltime-buton: 30px;
-    background-color: var(--culoare-contur);
-}
-ul.meniu{
-    display: flex;
-    flex-wrap: wrap;
+@charset "UTF-8";
+#ch-menu, #hamburger {
+  display: none;
 }
 
 @keyframes animatie_submeniu {
-    0%{
-        opacity: 0;
-            /* transform: scale(0, 0); */
-    }
-
-    50%{
-        /* transform: scale(0.5, 1); */
-    }
-
-    100%{
-        opacity: 1;
-        /* transform: scale(1); */
-
-    }
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+nav {
+  --latime-buton: 120px;
+  --inaltime-buton: 30px;
+  background-color: var(--culoare-contur);
 }
 
-ul.meniu ul{
-    display: none;
-    animation: animatie_submeniu 0.2s linear;
-    transform-origin: center-top;
+.text-icon, .imag-icon {
+  display: inline-block;
 }
 
-.text-icon, .imag-icon{
-    display: inline-block;
+ul.meniu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-
-ul.meniu, ul.meniu ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+ul.meniu li {
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+  width: var(--latime-buton);
+  height: var(--inaltime-buton);
+  background-color: var(--culoare-fundal);
+  border: 1px solid var(--culoare-contur);
+  text-align: center;
+  line-height: var(--inaltime-buton);
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
-
-#ch-menu{
-    display: none;
+ul.meniu li a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
-
-#hamburger{
-    display: none;
+ul.meniu li:hover {
+  background-color: var(--culoare-contur);
+  color: beige;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
 }
-
-ul.meniu li{ /*orice descendent de tip li, nu doar fii directi*/
-    font-weight: bold;
-    cursor: pointer;
-    width: var(--latime-buton);
-    height: var(--inaltime-buton);
-    background-color: var(--culoare-fundal);
-    border: 1px solid var(--culoare-contur);
-    text-decoration: none;
-    text-align: center;
-    line-height: var(--inaltime-buton);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    transition: all 0.2s linear;
+ul.meniu li:hover > ul {
+  display: block;
 }
-
-
-
-ul.meniu li:hover ul{
-    display: block;
-    position: relative;
-    z-index: 10; /*ORICE val > 0*/
+ul.meniu ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+  animation: animatie_submeniu 0.2s ease-out forwards;
+  transform-origin: center top;
 }
-
-/*toate ul care au clasa meniu*/
-ul.meniu li:hover{
-    background-color: var(--culoare-contur);
-    color: beige;
+ul.meniu ul li {
+  border-radius: 0;
+  box-shadow: none;
 }
-
-ul.meniu li a{
-    text-decoration: none;
-    color: inherit;
-    display: block;
+ul.meniu ul li a {
+  position: relative;
+  transition: padding 0.3s ease;
+}
+ul.meniu ul li a::before {
+  content: "→";
+  position: absolute;
+  left: 5px;
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: all 0.3s ease;
+}
+ul.meniu ul li:hover {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+ul.meniu ul li:hover a {
+  padding-left: 20px;
+}
+ul.meniu ul li:hover a::before {
+  opacity: 1;
+  transform: translateX(0);
 }

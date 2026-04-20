@@ -1,3 +1,14 @@
-.text-icon{
-    display: none;
+ul.meniu li {
+  font-size: 0.8rem;
+}
+ul.meniu li > .text-icon {
+  display: none;
+}
+ul.meniu li > i, ul.meniu li > .imag-icon {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: var(--inaltime-buton);
+}
+ul.meniu ul li .text-icon {
+  display: block;
 }

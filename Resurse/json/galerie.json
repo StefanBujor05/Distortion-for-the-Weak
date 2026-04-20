@@ -1,0 +1,48 @@
+{
+	"cale_galerie":"Resurse/imagini/galerie",
+	"imagini": [
+		{
+			"cale_fisier":"D_S.jpg",
+			"titlu": "Death - Symbolic (1995)",
+			"text_descriere":"Albumul Symbolic al trupei Death",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie","octombrie"]
+		},
+		{
+			"cale_fisier":"D_SH.jpg",
+			"titlu": "Death - Spiritual Healing (1990)",
+			"text_descriere":"Albumul Spiritual Healign al trupei Death",
+			"luni":["ianuarie","februarie","iunie","octombrie"]
+			
+		},
+		{
+			"cale_fisier":"MA_C.jpg",
+			"titlu": "Morbid Angel - Covenant (1993)",
+			"text_descriere":"Albumul Covenant al trupei Morbid Angel",
+			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+		},
+		{
+			"cale_fisier":"MA_GTA.jpg",
+			"titlu": "Morbid Angel - Gateways to Annihilation (2000)",
+			"text_descriere":"Albumul Gateways to Annihilation al trupei Morbid Angel",
+			"luni":["noiembrie","aprilie", "decembrie"]
+		},
+		{
+			"cale_fisier":"MCR_DD.jpg",
+			"titlu": "My Chemical Romance - Danger Days (2010)",
+			"text_descriere":"Albumul Danger Days al trupei My Chemical Romance",
+			"luni":["mai", "iuniue","iulie", "august"]
+		},
+		{
+			"cale_fisier":"P_VDOP.jpg",
+			"titlu": "Pantera - Vulgar Display of Power (1992)",
+			"text_descriere":"Albumul Vulgar Display of Power al trupei Pantera",
+			"luni": ["august", "septembire", "decembrie"]
+		},
+		{
+			"cale_fisier":"S_AOD.jpg",
+			"titlu": "Slayer - Angel of Death (1986)",
+			"text_descriere":"Albumul Angel of Death al trupei Slayer",
+			"luni":["ianuarie","februarie","martie","aprilie", "mai", "iunie", "iulie", "august", "septembrie", "octombrie", "noiembrie", "decembrie"]
+		}
+	]
+}

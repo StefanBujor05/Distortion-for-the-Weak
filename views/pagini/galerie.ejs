@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    
+    <title>Despre</title>
+    <meta name="description" content="Detaliile firmei">
+    <meta name="keywords" content="muzica, album, melodie, magazin, comanda, online, metal,
+                                       death, obituary, morbid angel, dying fetus, bolt thrower">
+
+    <%-include('../fragmente/head.ejs')%>
+    <link rel="stylesheet" href="/Resurse/css/galerie-animata.css?v=<%= Date.now() %>" type="text/css"/>
+    
+</head>
+<body>
+    
+    <%- include('../fragmente/header.ejs')%>
+
+    <main id="galerie-page">
+        <section id="titlu-galerie">
+            <h2>Galerie de albume</h2>
+                <div class="container-reflexie">
+                    <h1 id="text">Albume reflexive</h1>
+                    <h1 id="text-reflectat" aria-hidden="true">Albume reflexive</h1>
+                </div>
+        </section>
+        
+        <section id="galerie-statica-section">
+            
+            <%- include('../fragmente/galerie-statica.ejs')%>
+        </section>
+
+        <section id="galerie-animata-section">
+            <h2 style="text-align: center; margin-top: 2rem;">Galerie Animată Dinamică</h2>
+            <%- include('../fragmente/galerie-animata.ejs')%>
+        </section>
+
+        <hr class="separator-balonase">
+    </main>
+    
+    <%- include('../fragmente/footer.ejs')%>
+
+</body>
+</html>

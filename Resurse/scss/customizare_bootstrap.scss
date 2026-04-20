@@ -1,0 +1,15 @@
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
+(
+    $primary: red,
+    $secondary:rgb(216, 33, 33),
+    $body-bg: rgb(59, 4, 4),
+    $body-color: beige,
+
+    $h1-font-size: 3.0rem,
+    $border-radius: 0.75rem,
+
+    $font-family-base: ('Brygada 1918 ', serif),
+
+    $danger: rgb(216, 164, 33)
+    
+)
