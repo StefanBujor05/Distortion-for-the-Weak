@@ -212,8 +212,17 @@ function initImagini(){
     obGlobal.obImagini=JSON.parse(continut);
     let vImagini=obGlobal.obImagini.imagini;
     let caleGalerie=obGlobal.obImagini.cale_galerie
+    let caleAbs = path.join(__dirname, caleGalerie);
 
-    let caleAbs=path.join(__dirname,caleGalerie);
+    if (!fs.existsSync(caleAbs)) {
+        console.error(`\n[EROARE GALERIE] Folderul principal al galeriei nu exista!`);
+        console.error(`-> In JSON ai specificat: "${caleGalerie}"`);
+        console.error(`-> Calea absoluta cautata a fost: ${caleAbs}`);
+        
+        return; 
+    }
+
+    // let caleAbs=path.join(__dirname,caleGalerie);
     let caleAbsMediu=path.join(caleAbs, "mediu");
     if (!fs.existsSync(caleAbsMediu))
         fs.mkdirSync(caleAbsMediu);
@@ -235,9 +244,20 @@ initImagini();
 function compileazaScss(caleScss, caleCss){
     if(!caleCss){
 
-        let numeFisExt=path.basename(caleScss); // "folder1/folder2/a.scss" -> "a.scss"
-        let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
-        caleCss=numeFis+".css"; // output: a.css
+        // cod initial in caz de ORICE ---------->
+        // let numeFisExt=path.basename(caleScss); // "folder1/folder2/a.scss" -> "a.scss"
+
+        // let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
+
+        // caleCss=numeFis+".css"; // output: a.css 
+
+        let numeFisExt = path.basename(caleScss); 
+        let cuvinteNume = numeFisExt.split(".");
+        
+        cuvinteNume.pop(); 
+        
+        let numeFis = cuvinteNume.join("."); 
+        caleCss = numeFis + ".css";
     }
     
     if (!path.isAbsolute(caleScss))
@@ -254,8 +274,18 @@ function compileazaScss(caleScss, caleCss){
 
     let numeFisCss=path.basename(caleCss);
     if (fs.existsSync(caleCss)){
-        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/css",numeFisCss ))// +(new Date()).getTime()
+
+        // Bonus timestamp... creeaza multe fisiere, prefer sa il comentez dor LOL
+
+        // let timestmap = new Date().getTime();
+        // let numeTemp = numeFisCss.split(".")[0];
+        // let numeFisBackup = `${numeTemp}_${timestmap}.css`;
+
+        // fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/css",numeFisBackup ))
+
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/css",numeFisCss ))// +(new Date()).getTime() 
     }
+
     rez=sass.compile(caleScss, {"sourceMap":true});
     fs.writeFileSync(caleCss,rez.css)
     
