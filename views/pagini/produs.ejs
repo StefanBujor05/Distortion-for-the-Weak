@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
+        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse,<%- locals.prod.nume %>">
+        
+        <title>Cofetăria Dulcelind - <%- locals.prod.nume %></title>
+        <%- include("../fragmente/head") %>     
+        <link href="/Resurse/css/produs.css" type="text/css" rel="stylesheet" />
+    </head>
+
+        <%- include("../fragmente/header") %>
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                    <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                    <p>Numar piese: <span class="numar_piese"><%- locals.prod.numar_piese %> </span></p>
+                    <p>Categorie: <span class="categorie"><%- locals.prod.categ_muzicala %> </span></p>
+                    <p>Livrare: <span class="livrare"><%- locals.prod.livrare %> </span></p>
+                    <p>Data lansare: <span class="data_lansare"><%- locals.prod.data_lansare.toLocaleDateString('ro-RO') %> </span></p>
+                    <!-- <time lang="ro-RO">Data lansare: <span class="data_lansare"><%- locals.prod.data_lansare.toLocaleDateString('ro-RO') %> </span></time> -->
+                    <p>Lista piese: <span class="lista_piese"><%- locals.prod.piese %> </span></p>
+                    <figure class="imag-produs">
+                        <img  src="/Resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                    </figure>    
+                </article>
+            
+                
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

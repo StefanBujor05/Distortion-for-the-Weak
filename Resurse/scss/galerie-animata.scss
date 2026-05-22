@@ -1,5 +1,5 @@
 @use "sass:math";
-@use 'variabile-galerie' as *; 
+@use '_variabile-galerie' as *; 
 
 $timp-animatie-element: 2s; 
 $timp-total: $nr-imagini * $timp-animatie-element;

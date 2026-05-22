@@ -6,7 +6,7 @@ $border_px: 5px;
 }
 
 #ch-menu, #hamburger {
-    @extend %nu_afiseaza;
+    @extend %nu_afiseaza; 
 }
 
 @keyframes animatie_submeniu {

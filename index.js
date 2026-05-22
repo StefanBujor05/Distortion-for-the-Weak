@@ -3,9 +3,12 @@ const path= require("path");
 const fs = require("fs"); //file system
 const sass = require("sass");
 const sharp = require("sharp");
+const pg = require("pg");
 
 app= express();
 app.set("view engine", "ejs")
+
+
 
 obGlobal={
     obErori:null,
@@ -19,6 +22,26 @@ obGlobal={
 console.log("Folder index.js", __dirname);
 console.log("Folder curent (de lucru)", process.cwd());
 console.log("Cale fisier", __filename);
+
+client=new pg.Client({
+    database:"cti_2026",
+    user:"stefan",
+    password:"stefan",
+    host:"localhost",
+    port:5432
+})
+
+client.connect()
+
+client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rez){
+    if (err){
+        console.log("Eroare", err)
+    }
+    else{
+        console.log(rez)
+    }
+})
+
 
 let vect_foldere=["temp", "logs", "backup", "fisiere_uploadate"]
 for (let folder of vect_foldere){
@@ -45,12 +68,125 @@ app.get(["/", "/index", "/home"], function(req, res){
     });
 });
 
+// app.get("/produse", function(req, res){
+//     let clauzaWhere="";
+//     if(req.query.tip){
+//         clauzaWhere=` where tip_produs='${req.query.tip}'`
+//     }
+//     client.query("select * from prajituri" + clauzaWhere, function(err, rez){
+//         if(err){
+//             console.log("Eroare", err);
+//             afisareEroare(res, 2);
+//         }
+//         else{
+
+//             client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezOptiuni){
+//                 if (err){
+//                     afisareEroare(err, 2)
+//                 }
+//                 else{
+//                     res.render("pagini/produse", {
+//                         produse: rez.rows,
+//                         optiuni:rezOptiuni.rows
+//                     });
+//                 }
+//             })
+            
+//         }
+//     })
+// })
+
+app.get("/produse", function(req, res){
+    let clauzaWhere="";
+    if(req.query.tip){
+        clauzaWhere=` where categ_muzicala='${req.query.tip}'`
+    }
+    client.query("select * from albume" + clauzaWhere, function(err, rez){
+        if(err){
+            console.log("Eroare", err);
+            afisareEroare(res, 100);
+        }
+        else{
+
+            client.query("select * from unnest(enum_range(null::categ_muzicale))", function(err, rezOptiuni){
+                if (err){
+                    afisareEroare(err, 100)
+                }
+                else{
+                    res.render("pagini/produse", {
+                        produse: rez.rows,
+                        optiuni:rezOptiuni.rows
+                    });
+                }
+            })
+            
+        }
+    })
+})
+
+app.get("/produs/:id", function(req, res){
+    
+    client.query(`select * from albume where id=${req.params.id}`, function(err, rez){
+        if(err){
+            console.log("Eroare", err);
+            afisareEroare(res, 2);
+        }
+        else{
+            if(rez.rowCount == 0){
+                afisareEroare(res, 404, "Produs inexistent");
+            }
+            else{
+                res.render("pagini/produs", {
+                prod: rez.rows[0],
+            });
+            }
+            
+        }
+    })
+})
+
+const RO_MONTHS = [
+  "ianuarie","februarie","martie","aprilie","mai","iunie",
+  "iulie","august","septembrie","octombrie","noiembrie","decembrie"
+];
+
+function currentMonthIndex() {
+  return new Date().getMonth() + 1; // 1..12
+}
+function currentMonthName() {
+  return RO_MONTHS[currentMonthIndex() - 1];
+}
+function entryMatchesMonth(entry, curIdx, curName) {
+  if (typeof entry === "number") return entry === curIdx;
+  if (typeof entry === "string") return entry.trim().toLowerCase() === curName;
+  return false;
+}
+function imageAvailableInMonth(imag) {
+  const curIdx = currentMonthIndex();
+  const curName = currentMonthName();
+  if (!("luni" in imag)) return true;
+  const luni = imag.luni;
+  if (!Array.isArray(luni)) return true;
+  if (luni.length === 0) return true; 
+
+  const intervals = Array.isArray(luni[0]) ? luni : [luni];
+  return intervals.some(interval => {
+    if (!Array.isArray(interval)) return false;
+    return interval.some(entry => entryMatchesMonth(entry, curIdx, curName));
+  });
+}
+
 app.get("/galerie", function(req, res){
 
     let posibile = [5, 7, 9, 11];
     let n = posibile[Math.floor(Math.random() * posibile.length)];
 
-    let toateImaginile = obGlobal.obImagini.imagini;
+    let toateImaginile = obGlobal.obImagini.imagini || [];
+    // let toateImaginile = (obGlobal.obImagini.imagini || []).filter(imageAvailableInMonth);
+
+    let imaginiStaticeFiltrate = toateImaginile.filter(imageAvailableInMonth);
+
+    console.log("Numar imagini statice filtrate pentru luna curenta: ", imaginiStaticeFiltrate.length);
 
     let nrFinal = Math.min(n, toateImaginile.length);
     if (nrFinal % 2 === 0 && nrFinal > 0) nrFinal--; 
@@ -61,13 +197,14 @@ app.get("/galerie", function(req, res){
     fs.writeFileSync(caleVarScss, `$nr-imagini: ${nrFinal};\n`);
 
     let caleScssAnimata = path.join(obGlobal.folderScss, "galerie-animata.scss");
+    // repet constant compilarea noii imagini
     if(fs.existsSync(caleScssAnimata)) {
         compileazaScss(caleScssAnimata);
     }
 
     res.render("pagini/galerie", {
         // imagini: obGlobal.obImagini.imagini
-        imagini: toateImaginile, 
+        imagini: imaginiStaticeFiltrate, 
         imaginiAnimata: imaginiAnimata
     });
 });
@@ -81,11 +218,11 @@ app.get("/galerie", function(req, res){
 
 app.get("/cale", function(req, res){
     console.log("Am primit o cerere GET pe /cale");
-    res.send("<b style='color: red'>XD</b>"); //inchide automat conexiunea
+    res.send("<b style='color: red'>XD</b>"); 
 });
 
 app.get("/cale2", function(req, res){
-    res.write("ceva"); // nu o inchide pana la .end()
+    res.write("ceva");
     res.write("altceva");
     res.end();
 });

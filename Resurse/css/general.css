@@ -4,13 +4,33 @@ body{
     --culoare-contur:rgb(88, 24, 24);
     --text-colour:beige;
     --culoare-pata: beige;
+    --culoare-text-deco:rgb(110, 23, 23);   
+    --culoare-link-bf: rgb(233, 109, 37);
+    --culoare-link-after: rgb(143, 67, 23);
+
     color:var(--text-colour);
     background-color:var(--culoare-fundal);
-    text-decoration: rgb(255, 42, 0);   
+    text-decoration: var(--culoare-text-deco);
     margin: 0;
     padding: 0;
 }
  
+body.dark{
+    --culoare-fundal:rgb(14, 10, 10);
+    --margine-pagina:100px;
+    --culoare-contur:rgb(95, 17, 17);
+    --text-colour:beige;
+    --culoare-pata: beige;
+    --culoare-text-deco:rgb(214, 94, 94);   
+    --culoare-link-bf: rgb(255, 255, 255);
+    --culoare-link-after: rgb(172, 165, 161);
+    color:var(--text-colour);
+    background-color:var(--culoare-fundal);
+    text-decoration: var(--culoare-text-deco);
+    margin: 0;
+    padding: 0;
+
+}
 
 main{
 
@@ -38,13 +58,13 @@ header p{
 }
 
 a:link{
-    color:rgb(233, 109, 37);
+    color:var(--culoare-link-bf);
     background-color: transparent;
     text-decoration: none;
 }
 
 a:visited{
-    color:rgb(143, 67, 23);
+    color:var(--culoare-link-after);
     background-color: transparent;
     text-decoration: none;
 }
@@ -147,6 +167,10 @@ figure{
     gap: 15px;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
+}
+
+#galerie-grid-container figure:nth-child(5n) {
+    grid-column: 3;
 }
 
 #galerie-grid-container figure {
@@ -298,12 +322,8 @@ figure{
 #fig3{
     grid-area: fig3;
 }
-#produse{
-    grid-area: produse;
-    display: grid; 
-    grid-template-columns: 1fr 1fr;
-    gap: 15px
-}
+
+
 #index-intrebari{
     grid-area: index-intrebari;
 }
@@ -338,81 +358,6 @@ figure{
     height: auto;      /* Maintains aspect ratio */
     display: block;    /* Removes the annoying bottom gap */
      /* Optional: keeps them uniform if they aren't perfect squares */
-}
-
-@media screen and (max-width:700px) {
-    body{
-        --margine-pagina:50px;
-    }
-
-    #grid-pagina{
-    display: grid;
-    /*grid-template-columns: 3fr 1fr 1fr;*/
-    grid-template-areas: "welcome welcome "
-                         "promotii promotii"
-                         "anunturi anunturi"
-                         "fig1 orar"
-                         "fig2 orar"
-                         "fig3 orar"
-                         "produse produse"
-                         "index-intrebari index-intrebari"
-}
-}
-
-@media screen and (max-width:1200px) {
-    body{
-        --margine-pagina:50px;
-    }
-
-    #grid-pagina{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "welcome welcome "
-                         "promotii promotii"
-                         "anunturi anunturi"
-                         "fig1 orar"
-                         "fig2 orar"
-                         "fig3 orar"
-                         "produse produse"
-                         "index-intrebari index-intrebari"
-                         "video-section video-section"
-}
-}
-body{
-    --culoare-fundal:rgb(50, 13, 19);
-    --margine-pagina:100px;
-    --culoare-contur:rgb(88, 24, 24);
-    --culoare-selected:rgb(233, 109, 37);
-    --culoare-decorare: rgb(255, 42, 0);
-    --text-colour:beige;
-    color:var(--text-colour);
-    background-color:var(--culoare-fundal);
-    text-decoration: var(--culoare-decorare);
-    margin: 0;
-    padding: 0;
-}
- 
-
-main{
-
-    /* margin-left:var(--margine-pagina);
-    margin-right:var(--margine-pagina); */
-    max-width: 1400px; 
-    margin: 40px auto; /* 40px sus/jos, AUTO stânga/dreapta pentru CENTRARE */
-    padding: 0 20px;
-}
-
-a:link{
-    color: var(--culoare-selected);
-    background-color: transparent;
-    text-decoration: none;
-}
-
-
-a:visited{
-    color:var(--culoare-selected);
-    background-color: transparent;
-    text-decoration: none;
 }
 
 /*resetare spatiere*/
@@ -483,20 +428,12 @@ figure{
     padding: 10px;
 }
 
-/* #produse h2 {
-    grid-column: 1 / span 2; 
-    text-align: center;
-    margin-top: 0;
-} */
 
 #ifr-video-playlist iframe{
     display: block;
     margin: 0 auto; /*imparte marginile din st si dr in mod egal, iar cele de sus is jos sunt 0*/
 }
 
-#welcome{
-    grid-area: welcome;
-}
 #ifr-video-playlist{
     grid-area: ifr-video-playlist;  
 }
@@ -509,46 +446,11 @@ figure{
 #prod-tm{
     grid-area: prod-tm;
 }
-#statistici{
-    grid-area: statistici;
-}
-#useri-online{
-    grid-area: useri-online;
-}
-#anunturi{
-    grid-area: anunturi;
-}
-#orar{
-    grid-area: orar;
-}
+
+
 #video-live{
     grid-area: video-live;
 }
- 
-#fig1{
-    grid-area: fig1;
-}
-#fig2{
-    grid-area: fig2;
-}
-#fig3{
-    grid-area: fig3;
-}
-
-#index-intrebari{
-    grid-area: index-intrebari;
-}
-
-#personal-picks{
-    grid-area: personal-picks
-}
-#evenimente{
-    grid-area: evenimente;
-}
-/* table, th, td{
-    border: 1px solid var(--culoare-contur);
-
-} */
 
 #tab-orar td, #tab-orar{
     border: 1px solid var(--culoare-contur);
@@ -648,6 +550,10 @@ figure{
         --margine-pagina:50px;
     }
 
+    #galerie-grid-container figure:nth-child(5n) {
+        grid-column: auto;
+    }
+
     #grid-pagina {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
@@ -661,14 +567,18 @@ figure{
             "prod-dm        prod-tm" 
             "video-live     video-live"
             "ifr-video-playlist sectiune-formula"
-            "video-section  video-section"
-            "galerie-statica galerie-statica"; 
+            "video-section  video-section";
+            
     }
 }
 
 @media screen and (max-width:700px) {
     body{
         --margine-pagina:50px;
+    }
+
+    #galerie-grid-container figure:nth-child(5n) {
+        grid-column: auto;
     }
 
     #grid-pagina{
@@ -688,7 +598,6 @@ figure{
             "video-live"
             "ifr-video-playlist"
             "sectiune-formula"
-            "video-section"
-            "galerie-statica";
+            "video-section";
     }
-}
+} 

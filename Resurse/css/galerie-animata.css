@@ -23,7 +23,7 @@
   height: 100%;
   margin: 0;
   opacity: 0;
-  animation: animatie-galerie 14s linear infinite;
+  animation: animatie-galerie 10s linear infinite;
 }
 .galerie-animata figure picture {
   display: block;
@@ -61,12 +61,6 @@
 .galerie-animata figure:nth-child(5) {
   animation-delay: 8s;
 }
-.galerie-animata figure:nth-child(6) {
-  animation-delay: 10s;
-}
-.galerie-animata figure:nth-child(7) {
-  animation-delay: 12s;
-}
 
 @keyframes animatie-galerie {
   0% {
@@ -75,28 +69,28 @@
     clip-path: circle(75% at 50% 50%);
     transform: rotate(0deg);
   }
-  14.2847142857% {
+  19.999% {
     z-index: 10;
   }
-  14.2857142857% {
+  20% {
     z-index: 20;
     opacity: 1;
     clip-path: circle(75% at 50% 50%);
     transform: rotate(0deg);
   }
-  21.4285714286% {
+  30% {
     z-index: 20;
     opacity: 0.8;
     clip-path: circle(35% at 50% 50%);
     transform: rotate(0deg);
   }
-  28.5714285714% {
+  40% {
     z-index: 20;
     opacity: 0;
     clip-path: circle(0% at 50% 50%);
     transform: rotate(180deg);
   }
-  28.5724285714% {
+  40.001% {
     z-index: -1;
     opacity: 0;
   }
