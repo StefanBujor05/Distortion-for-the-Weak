@@ -1,5 +1,6 @@
 window.onload=function(){
 
+    let produseInitiale = Array.from(document.getElementsByClassName("produs"));
 
     document.getElementById("inp-pret").onchange=function(){
         let val=this.value.trim()
@@ -79,20 +80,28 @@ window.onload=function(){
     }
 
     document.getElementById("resetare").onclick=function(){
-        document.getElementById("inp-nume").value=""
-        document.getElementById("inp-pret").value="0"
-        document.getElementById("infoRange").innerHTML="(0)"
-        document.getElementById("inp-categorie").value="toate"
-        document.getElementById("inp-culoare").value=""
-        document.getElementById("i_rad4").checked=true
-        document.getElementById("inp-membrii").value = "";
-        
 
-        let produse=document.getElementsByClassName("produs")
-        for (let prod of produse){
-            prod.style.display="block"
+        let raspuns = confirm("Doriti sa resetati filtrele?");
+
+        if(raspuns){
+            document.getElementById("inp-nume").value=""
+            document.getElementById("inp-pret").value="0"
+            document.getElementById("infoRange").innerHTML="(0)"
+            document.getElementById("inp-categorie").value="toate"
+            document.getElementById("inp-culoare").value=""
+            document.getElementById("i_rad4").checked=true
+            document.getElementById("inp-membrii").value = "";
+            
+
+            let produse=document.getElementsByClassName("produs")
+            for (let prod of produse){
+                prod.style.display="block"
+            }
+
+            for(let prod of produseInitiale){
+                prod.parentElement.appendChild(prod)
+            }
         }
-
     }
 
     function sorteaza(semn){

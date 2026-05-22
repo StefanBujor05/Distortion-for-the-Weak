@@ -71,16 +71,18 @@ main{
 .produs{
     position: relative;
 }
-.selecteaza-cos{
-    display: inline-block;
+.selecteaza-cos {
+    display: block; 
+    width: fit-content; 
+    
+    margin: 1rem 0.5rem 0.5rem auto; 
+    
     background-color: var(--culoare-mov);
-    position:absolute;
-    bottom:0.5rem;
-    right:0.5rem;
     border-radius: 0.5rem;
     text-align: center;
-    padding:0.3rem;
-    border:1px solid transparent;
+    padding: 0.3rem 0.6rem; 
+    border: 1px solid transparent;
+    cursor: pointer; 
 }
 
 .selecteaza-cos:hover{
