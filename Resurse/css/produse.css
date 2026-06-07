@@ -30,10 +30,10 @@ main{
 }
 
 .grid-produse .produs h3 a{
-    color:beige;
+    color: var(--culoare-link-bf);
 }
 .grid-produse .produs h3 a:hover{
-    color:white;
+    color: var(--culoare-link);
 }
 .grid-produse .produs figure{
     text-align: center;

@@ -1,12 +1,12 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
 (
-    $primary: red,
+    $primary: rgb(103, 15, 15),
     $secondary:rgb(216, 33, 33),
-    $body-bg: rgb(59, 4, 4),
-    // $body-bg: rgb(70, 63, 63),
+    $body-bg: rgb(97, 12, 12),
+    // $body-bg: var(--culoare-fundal),
     
-    $body-color: beige,
-    $link-color: beige,
+    // $body-color: beige,
+    // $link-color: beige,
 
     $h1-font-size: 3.0rem,
     $border-radius: 0.75rem,
@@ -17,6 +17,7 @@
 
     $form-range-thumb-width: 1.5rem,
     $form-range-thumb-height: 1.5rem,
-    $form-range-thumb-bg: rgb(216, 33, 33), 
+    // $form-range-thumb-bg: rgb(216, 33, 33), 
     
 )
+    

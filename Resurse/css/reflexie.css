@@ -1,15 +1,15 @@
 
 .container-reflexie {
   position: relative;
-  display: inline-block; /* Menține lățimea containerului cât lățimea textului */
-  margin: 50px; /* Spațiu de respiro pe pagină */
+  display: inline-block; 
+  margin: 50px; 
 }
 
 #text, #text-reflectat {
   font-size: 50px;
   line-height: 50px;
   font-weight: bold;
-  margin: 0; /* Resetăm marginile implicite ale tag-ului h1 */
+  margin: 0; 
 }
 
 #text {	

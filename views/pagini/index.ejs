@@ -288,6 +288,26 @@
             
                     </ul>
                 </section>
+
+                <section id="produse-noi-index">
+                <h2>Cele mai noi produse</h2>
+                <% if (locals.produseNoi && locals.produseNoi.length > 0) { %>
+                    <ul class="lista-produse-noi">
+                        <% for (let prod of locals.produseNoi) { %>
+                            <li>
+                                <a href="/produs/<%-prod.id %>" class="link-produs-nou">
+                                    <%- prod.nume %>
+                                </a>
+                                <% if (prod.isNou) { %>
+                                    <span class="badge-nou-index">NOU</span>
+                                <% } %>
+                            </li>
+                        <% } %>
+                    </ul>
+                <% } else { %>
+                    <p class="text-muted"><i>Nu exista produse noi în acest moment.</i></p>
+                <% } %>
+            </section>
             
             
 <!--
